@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time #클릭, 이동시 브라우저도 시간이 필요하기 때문에 시간 지연시키는 코드를 위해 사용
 import urllib.request
+import csv
 
 def webCrawling() :
     
@@ -33,12 +34,12 @@ def webCrawling() :
     #     last_height = new_height
 
     data = []
-    imgLen = len(images)
+    #imgLen = len(images)
 
     cnt = 1
 
     ## 이미지 가져오기
-    for i in range(imgLen):
+    for i in range(5):
         img_data = []
         print(cnt)
         cnt += 1
@@ -75,8 +76,26 @@ def webCrawling() :
 
         except:
             pass
-
+    
+    print(data)
     driver.close()
     return data
 
-print(webCrawling())
+def makeCsv(crawlingList) :
+    # newline='' 설정이 없는 경우 row와 row 사이에 뉴라인이 한번 더 들어가게 됨
+    with open('listfile.csv', 'w', encoding='utf-8-sig', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(crawlingList)
+
+def readCsv() :
+    data = []
+    # encoding='utf-8-sig' 설정은 한글 깨짐 방지
+    with open('listfile.csv', 'r', encoding='utf-8-sig') as f:
+        rdr = csv.reader(f)
+        for line in enumerate(rdr):
+            data.append(line)
+    print(data)
+
+
+makeCsv(webCrawling())
+readCsv()
