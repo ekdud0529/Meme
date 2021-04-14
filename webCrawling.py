@@ -98,4 +98,5 @@ def readCsv() :
 
 
 makeCsv(webCrawling())
+print("\n")
 readCsv()
