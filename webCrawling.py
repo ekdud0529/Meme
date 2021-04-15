@@ -81,22 +81,28 @@ def webCrawling() :
     driver.close()
     return data
 
-def makeCsv(crawlingList) :
+def list2csv(crawlingList) :
     # newline='' 설정이 없는 경우 row와 row 사이에 뉴라인이 한번 더 들어가게 됨
-    with open('listfile.csv', 'w', encoding='utf-8-sig', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow(crawlingList)
+    
+    f = open('listfile.csv', 'w', newline='')
+    wr = csv.writer(f)
+    for imgList in crawlingList:
+        wr.writerow(imgList)
+    f.close()
 
-def readCsv() :
+def csv2list() :
     data = []
     # encoding='utf-8-sig' 설정은 한글 깨짐 방지
-    with open('listfile.csv', 'r', encoding='utf-8-sig') as f:
-        rdr = csv.reader(f)
-        for line in enumerate(rdr):
-            data.append(line)
-    print(data)
+    f = open('listfile.csv', 'r')
+    rdr = csv.reader(f)
+    for line in rdr:
+        data.append(line)
+    f.close
+
+    return data
 
 
-makeCsv(webCrawling())
-print("\n")
-readCsv()
+
+#list2csv(webCrawling())
+#print("\n")
+print(csv2list())
