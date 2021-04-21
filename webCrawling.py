@@ -108,6 +108,6 @@ def csv2list() :
 
 
 
-list2csv(webCrawling())
-print("\n")
+#list2csv(webCrawling())
+#print("\n")
 print(csv2list())
