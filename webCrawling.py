@@ -62,9 +62,14 @@ def webCrawling() :
             tagCnt = len(tagCnt)
 
             img_tag = []
+            tag2str = ""
             for i in range(tagCnt):
                 text = driver.find_element_by_xpath('//*[@id="zzal"]/div[2]/div/div[2]/div/div[%d]/a/span'%(i+1)).text
-                img_tag.append(text)
+                if(len(tag2str) != 0) :
+                    tag2str += ", " + text
+                else :
+                    tag2str = text
+            img_tag.append(tag2str)
 
             
             img_data.append(img_src)
@@ -84,7 +89,7 @@ def webCrawling() :
 def list2csv(crawlingList) :
     # newline='' 설정이 없는 경우 row와 row 사이에 뉴라인이 한번 더 들어가게 됨
     
-    f = open('listfile.csv', 'w', newline='')
+    f = open('tagData.csv', 'w', newline='')
     wr = csv.writer(f)
     for imgList in crawlingList:
         wr.writerow(imgList)
@@ -93,7 +98,7 @@ def list2csv(crawlingList) :
 def csv2list() :
     data = []
     # encoding='utf-8-sig' 설정은 한글 깨짐 방지
-    f = open('listfile.csv', 'r')
+    f = open('tagData.csv', 'r')
     rdr = csv.reader(f)
     for line in rdr:
         data.append(line)
@@ -103,6 +108,6 @@ def csv2list() :
 
 
 
-#list2csv(webCrawling())
-#print("\n")
+list2csv(webCrawling())
+print("\n")
 print(csv2list())
