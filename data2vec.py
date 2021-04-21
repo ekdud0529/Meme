@@ -15,7 +15,22 @@ model = BertModel.from_pretrained(
     config=pretrained_model_config,
 )
 
-sentences = ["무라세사에, 졸이쁨, 인기", "지켜본다, 으으으, 끔찍, 생, 짱구", "?!, 양파, 제니, 양파죠"]
+import csv
+def csv2list() :
+    data = []
+    # encoding='utf-8-sig' 설정은 한글 깨짐 방지
+    f = open('tagData.csv', 'r')
+    rdr = csv.reader(f)
+    for line in rdr:
+        data.append(line)
+    f.close
+
+    return data
+
+sentences = csv2list()
+print(sentences)
+print("\n\n\n\n")
+
 features = tokenizer(
     sentences,
     max_length=40,
