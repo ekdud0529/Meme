@@ -43,3 +43,11 @@ features = {k: torch.tensor(v) for k, v in features.items()}
 outputs = model(**features)
 
 print(outputs[1])
+
+import faiss
+import numpy as np
+
+tagVec = outputs[1].detach().numpy()
+index = faiss.IndexFlatL2(tagVec.shape[1])
+index.add(tagVec)
+print(index.ntotal)
