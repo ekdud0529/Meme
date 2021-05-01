@@ -54,10 +54,21 @@ index = faiss.IndexFlatL2(tagVec.shape[1])
 index.add(tagVec)
 print(index.ntotal)
 
-# 검색어 입력받기
-#search = input()
+# 임의로 설정한 검색어
+search = ['이쁘다', '짱구']
 
 #검색어 KcBERT로 imbedding
+search_features = tokenizer(
+    search,
+    max_length=40,
+    padding="max_length",
+    truncation=True,
+)
 
+search_features = {k: torch.tensor(v) for k, v in search_features.items()}
+
+search_outputs = model(**search_features)
+
+print(search_outputs[1])
 
 # 검색어 비교 및 반환
