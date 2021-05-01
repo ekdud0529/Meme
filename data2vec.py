@@ -1,17 +1,17 @@
 def search_meme() :
 
-    # KcBERT embedding
+    # 토크나이저 초기화
     from transformers import BertTokenizer
     tokenizer = BertTokenizer.from_pretrained(
         "beomi/kcbert-base",
         do_lower_case=False,
     )
-
+    #모델 초기화
     from transformers import BertConfig, BertModel
     pretrained_model_config = BertConfig.from_pretrained(
         "beomi/kcbert-base"
     )
-
+    # KcBERT embedding
     import torch
     model = BertModel.from_pretrained(
         "beomi/kcbert-base",
