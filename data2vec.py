@@ -16,6 +16,7 @@ model = BertModel.from_pretrained(
     config=pretrained_model_config,
 )
 
+# data 불러오기
 import csv
 def csv2list() :
     data = []
@@ -66,9 +67,10 @@ search_features = tokenizer(
 )
 
 search_features = {k: torch.tensor(v) for k, v in search_features.items()}
-
 search_outputs = model(**search_features)
-
 print(search_outputs[1])
+searchVec = search_outputs[1].detach().numpy()
 
 # 검색어 비교 및 반환
+distances, indices = index.search(searchVec, 1)
+print(indices)
