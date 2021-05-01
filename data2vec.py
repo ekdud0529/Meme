@@ -1,3 +1,4 @@
+# KcBERT embedding
 from transformers import BertTokenizer
 tokenizer = BertTokenizer.from_pretrained(
     "beomi/kcbert-base",
@@ -44,10 +45,19 @@ outputs = model(**features)
 
 print(outputs[1])
 
+
+# indexing
 import faiss
-import numpy as np
 
 tagVec = outputs[1].detach().numpy()
 index = faiss.IndexFlatL2(tagVec.shape[1])
 index.add(tagVec)
 print(index.ntotal)
+
+# 검색어 입력받기
+#search = input()
+
+#검색어 KcBERT로 imbedding
+
+
+# 검색어 비교 및 반환
