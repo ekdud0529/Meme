@@ -1,4 +1,5 @@
 def search_meme() :
+
     # KcBERT embedding
     from transformers import BertTokenizer
     tokenizer = BertTokenizer.from_pretrained(
@@ -32,7 +33,7 @@ def search_meme() :
 
     sentences = csv2list()
     print(sentences)
-    print("\n\n\n\n")
+    print("\n\n")
 
     features = tokenizer(
         sentences,
@@ -42,10 +43,9 @@ def search_meme() :
     )
 
     features = {k: torch.tensor(v) for k, v in features.items()}
-
     outputs = model(**features)
-
     print(outputs[1])
+    print("\n\n")
 
 
     # indexing
@@ -55,26 +55,43 @@ def search_meme() :
     index = faiss.IndexFlatL2(tagVec.shape[1])
     index.add(tagVec)
     print(index.ntotal)
+    print("\n\n")
 
     # 임의로 설정한 검색어
-    search = ['양파, 제니']
+    search1 = ['양파, 제니']
+    search2 = ['짱구']
 
     #검색어 KcBERT로 imbedding
-    search_features = tokenizer(
-        search,
+    search_features1 = tokenizer(
+        search1,
         max_length=40,
         padding="max_length",
         truncation=True,
     )
 
-    search_features = {k: torch.tensor(v) for k, v in search_features.items()}
-    search_outputs = model(**search_features)
-    print(search_outputs[1])
+    search_features2 = tokenizer(
+        search2,
+        max_length=40,
+        padding="max_length",
+        truncation=True,
+    )
+
+    search_features1 = {k: torch.tensor(v) for k, v in search_features1.items()}
+    search_features2 = {k: torch.tensor(v) for k, v in search_features2.items()}
+    search_outputs1 = model(**search_features1)
+    search_outputs2 = model(**search_features1)
+    print(search_outputs1[1])
+    print(search_outputs2[1])
+    print("\n\n")
 
     # 검색어 비교 및 반환
-    searchVec = search_outputs[1].detach().numpy()
-    distances, indices = index.search(searchVec, 1)
-    print(indices)
+    searchVec1 = search_outputs1[1].detach().numpy()
+    searchVec2 = search_outputs2[1].detach().numpy()
+    distances1, indices1 = index.search(searchVec1, 1)
+    distances2, indices2 = index.search(searchVec2, 1)
+    print(indices1)
+    print(indices2)
+    print("\n\n")
 
 
 search_meme()
