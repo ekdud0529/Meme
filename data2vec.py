@@ -58,39 +58,25 @@ def search_meme() :
     print("\n\n")
 
     # 임의로 설정한 검색어
-    search1 = ['양파, 제니']
-    search2 = ['짱구']
+    search = ['양파, 제니', '짱구, 으으으']
 
     #검색어 KcBERT로 imbedding
-    search_features1 = tokenizer(
-        search1,
+    search_features = tokenizer(
+        search,
         max_length=40,
         padding="max_length",
         truncation=True,
     )
 
-    search_features2 = tokenizer(
-        search2,
-        max_length=40,
-        padding="max_length",
-        truncation=True,
-    )
-
-    search_features1 = {k: torch.tensor(v) for k, v in search_features1.items()}
-    search_features2 = {k: torch.tensor(v) for k, v in search_features2.items()}
-    search_outputs1 = model(**search_features1)
-    search_outputs2 = model(**search_features1)
-    print(search_outputs1[1])
-    print(search_outputs2[1])
+    search_features = {k: torch.tensor(v) for k, v in search_features.items()}
+    search_outputs = model(**search_features)
+    print(search_outputs[1])
     print("\n\n")
 
     # 검색어 비교 및 반환
-    searchVec1 = search_outputs1[1].detach().numpy()
-    searchVec2 = search_outputs2[1].detach().numpy()
-    distances1, indices1 = index.search(searchVec1, 1)
-    distances2, indices2 = index.search(searchVec2, 1)
-    print(indices1)
-    print(indices2)
+    searchVec = search_outputs[1].detach().numpy()
+    distances, indices = index.search(searchVec, 2)
+    print(indices)
     print("\n\n")
 
 
