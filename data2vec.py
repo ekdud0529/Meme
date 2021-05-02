@@ -58,7 +58,7 @@ def search_meme() :
     print("\n\n")
 
     # 임의로 설정한 검색어
-    search = ['불꽃놀이, 오마이걸', '짱구, 으으으']
+    search = ['무한도전 짤', '짱구 짤']
 
     #검색어 KcBERT로 imbedding
     search_features = tokenizer(
@@ -75,7 +75,7 @@ def search_meme() :
 
     # 검색어 비교 및 반환
     searchVec = search_outputs[1].detach().numpy()
-    distances, indices = index.search(searchVec, 1)
+    distances, indices = index.search(searchVec, 3)
     print(indices)
     print("\n\n")
 
