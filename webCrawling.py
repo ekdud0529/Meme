@@ -88,7 +88,6 @@ def webCrawling() :
 
 def list2csv(crawlingList) :
     # newline='' 설정이 없는 경우 row와 row 사이에 뉴라인이 한번 더 들어가게 됨
-    
     f = open('tagData.csv', 'w', newline='')
     wr = csv.writer(f)
     for imgList in crawlingList:
@@ -98,7 +97,7 @@ def list2csv(crawlingList) :
 def csv2list() :
     data = []
     # encoding='utf-8-sig' 설정은 한글 깨짐 방지
-    f = open('tagData.csv', 'r')
+    f = open('tagData.csv', 'r', encoding='utf-8-sig')
     rdr = csv.reader(f)
     for line in rdr:
         data.append(line)
