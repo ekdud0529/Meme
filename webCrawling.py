@@ -39,7 +39,7 @@ def webCrawling() :
     cnt = 1
 
     ## 이미지 가져오기
-    for i in range(20):
+    for i in range(100):
         img_data = []
         print(cnt)
         cnt += 1

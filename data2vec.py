@@ -1,4 +1,4 @@
-def search_meme() :
+def embedding(tagData) :
 
     # 토크나이저 초기화
     from transformers import BertTokenizer
@@ -18,6 +18,23 @@ def search_meme() :
         config=pretrained_model_config,
     )
 
+    features = tokenizer(
+        tagData,
+        max_length=40,
+        padding="max_length",
+        truncation=True,
+    )
+
+    features = {k: torch.tensor(v) for k, v in features.items()}
+    outputs = model(**features)
+    print(outputs[1])
+    print("\n\n")
+
+    return outputs
+
+
+def search_meme() :
+
     # data 불러오기
     import csv
     def csv2list() :
@@ -31,22 +48,7 @@ def search_meme() :
 
         return data
 
-    sentences = csv2list()
-    print(sentences)
-    print("\n\n")
-
-    features = tokenizer(
-        sentences,
-        max_length=40,
-        padding="max_length",
-        truncation=True,
-    )
-
-    features = {k: torch.tensor(v) for k, v in features.items()}
-    outputs = model(**features)
-    print(outputs[1])
-    print("\n\n")
-
+    outputs = embedding(csv2list())
 
     # indexing
     import faiss
@@ -58,20 +60,9 @@ def search_meme() :
     print("\n\n")
 
     # 임의로 설정한 검색어
-    search = ['무한도전 짤', '짱구 짤']
+    search = ['오마이걸 짤', '짱구 짤']
 
-    #검색어 KcBERT로 imbedding
-    search_features = tokenizer(
-        search,
-        max_length=40,
-        padding="max_length",
-        truncation=True,
-    )
-
-    search_features = {k: torch.tensor(v) for k, v in search_features.items()}
-    search_outputs = model(**search_features)
-    print(search_outputs[1])
-    print("\n\n")
+    search_outputs = embedding(search)
 
     # 검색어 비교 및 반환
     searchVec = search_outputs[1].detach().numpy()
