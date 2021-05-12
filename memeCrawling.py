@@ -14,26 +14,26 @@ def webCrawling() :
     driver.get('https://2runzzal.com/')
 
     # Scroll down ##
-    # SCROLL_PAUSE_SEC = 3
+    SCROLL_PAUSE_SEC = 3
 
     # 스크롤 높이 가져옴
-    # last_height = driver.execute_script("return document.body.scrollHeight")
+    last_height = driver.execute_script("return document.body.scrollHeight")
 
-    # while True:
-    #     # 끝까지 스크롤 다운
-    #     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    for i in range(7):
+        # 끝까지 스크롤 다운
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-    #     # 1초 대기
-    #     time.sleep(SCROLL_PAUSE_SEC)
+        # 1초 대기
+        time.sleep(SCROLL_PAUSE_SEC)
 
-    #     # 스크롤 다운 후 스크롤 높이 다시 가져옴
-    #     new_height = driver.execute_script("return document.body.scrollHeight")
-    #     if new_height == last_height:
-    #         break
-    #     last_height = new_height
+        # 스크롤 다운 후 스크롤 높이 다시 가져옴
+        new_height = driver.execute_script("return document.body.scrollHeight")
+        if new_height == last_height:
+            break
+        last_height = new_height
 
     images = driver.find_elements_by_css_selector(".grid-item")
-    time.sleep(3)
+    time.sleep(2)
 
     data = []
     imgLen = len(images)
@@ -49,7 +49,7 @@ def webCrawling() :
         try:
             # 이미지 src 가져오기
             img_src = driver.find_elements_by_css_selector(".lazy")[i].get_attribute("src")
-            time.sleep(3)
+            time.sleep(1)
 
             driver.find_elements_by_css_selector(".lazy")[i].click()
 
@@ -63,7 +63,7 @@ def webCrawling() :
 
             for k in range(tagCnt) :
                 text = driver.find_element_by_css_selector('#zcontents > section > div.grid > div.grid-item.on > div > div > div.zzal-info-bl > a:nth-child(%d) > span'%(k+1)).text
-                time.sleep(3)
+                time.sleep(1)
                 text = text[1:] # 해시태그 글자 제거
                 if(k != 0) :
                     tag2str += ", " + text
@@ -105,5 +105,5 @@ def csv2list() :
 
     return data
 
-
+#webCrawling()
 list2csv(webCrawling())
