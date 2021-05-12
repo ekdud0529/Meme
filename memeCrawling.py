@@ -12,13 +12,12 @@ def webCrawling() :
 
     # driver로 특정 페이지를 크롤링한다.
     driver.get('https://2runzzal.com/')
-    images = driver.find_elements_by_css_selector(".grid-item")
 
-    ## Scroll down ##
-    #SCROLL_PAUSE_SEC = 3
+    # Scroll down ##
+    # SCROLL_PAUSE_SEC = 3
 
     # 스크롤 높이 가져옴
-    #last_height = driver.execute_script("return document.body.scrollHeight")
+    # last_height = driver.execute_script("return document.body.scrollHeight")
 
     # while True:
     #     # 끝까지 스크롤 다운
@@ -33,62 +32,63 @@ def webCrawling() :
     #         break
     #     last_height = new_height
 
-    data = []
-    #imgLen = len(images)
+    images = driver.find_elements_by_css_selector(".grid-item")
+    time.sleep(3)
 
-    cnt = 1
+    data = []
+    imgLen = len(images)
 
     ## 이미지 가져오기
-    for i in range(100):
+    cnt = 1
+    for i in range(imgLen):
         img_data = []
+
         print(cnt)
         cnt += 1
 
         try:
-
-            # # 이미지 페이지로 이동할 url 가져오기
-            img_href = driver.find_elements_by_css_selector(".btn-view-zzal")[i].get_attribute("href")
+            # 이미지 src 가져오기
+            img_src = driver.find_elements_by_css_selector(".lazy")[i].get_attribute("src")
             time.sleep(3)
 
-            # # url 페이지로 이동
-            driver.get(img_href)
+            driver.find_elements_by_css_selector(".lazy")[i].click()
 
-            # # 이미지 src 가져오기
-            img_src = driver.find_element_by_css_selector(".zzal-img").get_attribute("src")
-            time.sleep(1)
-
-            # # 이미지 tag 가져오기
-            tagCnt = driver.find_elements_by_css_selector(".label.bg-tag.font-13")
+            # 이미지 tag 가져오기
+            tagCnt = driver.find_elements_by_css_selector('#zcontents > section > div.grid > div.grid-item.on > div > div > div.zzal-info-bl > a')
+            time.sleep(2)
             tagCnt = len(tagCnt)
 
             img_tag = []
             tag2str = ""
-            for i in range(tagCnt):
-                text = driver.find_element_by_xpath('//*[@id="zzal"]/div[2]/div/div[2]/div/div[%d]/a/span'%(i+1)).text
-                if(len(tag2str) != 0) :
+
+            for k in range(tagCnt) :
+                text = driver.find_element_by_css_selector('#zcontents > section > div.grid > div.grid-item.on > div > div > div.zzal-info-bl > a:nth-child(%d) > span'%(k+1)).text
+                time.sleep(3)
+                text = text[1:] # 해시태그 글자 제거
+                if(k != 0) :
                     tag2str += ", " + text
                 else :
                     tag2str = text
+            
             img_tag.append(tag2str)
 
-            
+            # img와 tag를 한 list에 넣어주기
             img_data.append(img_src)
             img_data = img_data + img_tag
 
             data.append(img_data)
-            driver.back()
-            time.sleep(1)
 
         except:
             pass
     
     print(data)
     driver.close()
+    
     return data
 
 def list2csv(crawlingList) :
     # newline='' 설정이 없는 경우 row와 row 사이에 뉴라인이 한번 더 들어가게 됨
-    f = open('tagData.csv', 'w', newline='')
+    f = open('memeData.csv', 'w', newline='')
     wr = csv.writer(f)
     for imgList in crawlingList:
         wr.writerow(imgList)
@@ -97,7 +97,7 @@ def list2csv(crawlingList) :
 def csv2list() :
     data = []
     # encoding='utf-8-sig' 설정은 한글 깨짐 방지
-    f = open('tagData.csv', 'r')
+    f = open('memeData.csv', 'r')
     rdr = csv.reader(f)
     for line in rdr:
         data.append(line)
@@ -106,7 +106,4 @@ def csv2list() :
     return data
 
 
-
 list2csv(webCrawling())
-print("\n")
-print(csv2list())
