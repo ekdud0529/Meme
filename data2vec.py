@@ -32,7 +32,7 @@ def tagEmbedding(tagData) :
 
     return outputs
 
-def tagIndexing() : 
+def tagIndexing(output) : 
 
     import faiss
 
