@@ -9,18 +9,19 @@ app = Flask(__name__)
 def hello():
     return "Hello, Flask!"
 
+# https://meme-uerun.run.goorm.io/
 @app.route('/meme', methods=['POST'])
-def memeSearch() :
+def memeSearch():
     req = request.get_json()
-    
-    meme_value = req["action"]["detailParams"]["meme"]["value"]
-    
-    answer = meme_value + "wowowowowo"
-    
+
+    req = req['userRequest']['utterance']
+
+    answer = req + "wowowowowo"
+
     res = {
-        "version": "2.0"
+        "version": "2.0",
         "template": {
-            "outputs" : [
+            "outputs": [
                 {
                     "simpleText": {
                         "text": answer
@@ -29,7 +30,7 @@ def memeSearch() :
             ]
         }
     }
-    
+
     return jsonify(res)
 
 if __name__ == '__main__':
