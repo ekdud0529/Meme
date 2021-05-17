@@ -23,8 +23,8 @@ def memeSearch():
         "template": {
             "outputs": [
                 {
-                    "simpleText": {
-                        "text": answer
+                    "simpleImage": {
+                        "image": answer
                     }
                 }
             ]

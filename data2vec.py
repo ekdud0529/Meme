@@ -1,4 +1,4 @@
-def tagEmbedding(tagData) :
+def tagEmbedding(tagData):
 
     # 토크나이저 초기화
     from transformers import BertTokenizer
@@ -45,15 +45,15 @@ def tagIndexing(outputs):
     print("\n\n")
 
     # faiss indexing save
-    faiss.write_index(index, "test.index")
+    faiss.write_index(index, "memeTag.index")
 
-def readTag() :
+def readTag():
 
     import csv
 
     data = []
     # encoding='utf-8-sig' 설정은 한글 깨짐 방지
-    f = open('tagData.csv', 'r')
+    f = open('memeData.csv', 'r')
     rdr = csv.reader(f)
     for line in rdr:
         data.append(line)
@@ -62,7 +62,7 @@ def readTag() :
     return data
 
 
-def search_meme() :
+def search_meme(search):
 
     #outputs = embedding(readTag())
 
@@ -71,9 +71,6 @@ def search_meme() :
 
     index2 = faiss.read_index("test.index")
 
-    # 임의로 설정한 검색어
-    search = ['오마이걸 짤', '짱구 짤']
-
     search_outputs = tagEmbedding(search)
 
     # 검색어 비교 및 반환
@@ -81,6 +78,7 @@ def search_meme() :
     distances, indices = index2.search(searchVec, 3)
     print(indices)
     print("\n\n")
+    return str(indices)
 
 
-search_meme()
+tagIndexing(tagEmbedding(readTag()))
