@@ -61,18 +61,3 @@ def readTag():
     return data
 
 
-def search_meme(search):
-
-    # faiss indexing read
-    import faiss
-
-    index2 = faiss.read_index("memeTag.index")
-
-    search_outputs = search
-
-    # 검색어 비교 및 반환
-    searchVec = search_outputs[1].detach().numpy()
-    distances, indices = index2.search(searchVec, 3)
-    print(indices)
-    return str(indices)
-
