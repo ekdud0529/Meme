@@ -1,5 +1,5 @@
 def tagEmbedding(tagData):
-    
+
     # 토크나이저 초기화
     from transformers import BertTokenizer
     tokenizer = BertTokenizer.from_pretrained(
@@ -64,12 +64,10 @@ def readTag():
 
 def search_meme(search):
 
-    #outputs = embedding(readTag())
-
     # faiss indexing read
     import faiss
 
-    index2 = faiss.read_index("test.index")
+    index2 = faiss.read_index("memeTag.index")
 
     search_outputs = tagEmbedding(search)
 
@@ -77,8 +75,5 @@ def search_meme(search):
     searchVec = search_outputs[1].detach().numpy()
     distances, indices = index2.search(searchVec, 3)
     print(indices)
-    print("\n\n")
     return str(indices)
 
-
-tagIndexing(tagEmbedding(readTag()))

@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import data2vec
 
 ERROR_MESSAGE = '네트워크 접속에 문제가 발생하였습니다. 잠시 후 다시 시도해 주세요.'
 
@@ -16,15 +17,16 @@ def memeSearch():
 
     req = req['userRequest']['utterance']
 
-    answer = req + "wowowowowo"
-
+    # 검색어 임베딩
+    answer = str(data2vec.search_meme(req))
+    
     res = {
         "version": "2.0",
         "template": {
             "outputs": [
                 {
-                    "simpleImage": {
-                        "image": answer
+                    "simpleText": {
+                        "text": answer
                     }
                 }
             ]
