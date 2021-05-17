@@ -1,5 +1,5 @@
 def tagEmbedding(tagData):
-
+    
     # 토크나이저 초기화
     from transformers import BertTokenizer
     tokenizer = BertTokenizer.from_pretrained(
