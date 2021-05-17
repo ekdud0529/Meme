@@ -28,7 +28,6 @@ def tagEmbedding(tagData):
     features = {k: torch.tensor(v) for k, v in features.items()}
     outputs = model(**features)
     print(outputs[1])
-    print("\n\n")
 
     return outputs
 
@@ -69,7 +68,7 @@ def search_meme(search):
 
     index2 = faiss.read_index("memeTag.index")
 
-    search_outputs = tagEmbedding(search)
+    search_outputs = search
 
     # 검색어 비교 및 반환
     searchVec = search_outputs[1].detach().numpy()

@@ -18,7 +18,8 @@ def memeSearch():
     req = req['userRequest']['utterance']
 
     # 검색어 임베딩
-    answer = str(data2vec.search_meme(req))
+    answer = data2vec.tagEmbedding(req)
+    answer = data2vec.search_meme(answer)
     
     res = {
         "version": "2.0",
