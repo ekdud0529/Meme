@@ -1,5 +1,8 @@
 from flask import Flask, request, jsonify
-import time
+from transformers import BertTokenizer
+from transformers import BertConfig, BertModel
+import torch
+import faiss
 
 ERROR_MESSAGE = '네트워크 접속에 문제가 발생하였습니다. 잠시 후 다시 시도해 주세요.'
 
@@ -11,26 +14,23 @@ def hello():
     return "Hello, Flask!"
 
 # 토크나이저 초기화
-from transformers import BertTokenizer
 tokenizer = BertTokenizer.from_pretrained(
     "beomi/kcbert-base",
     do_lower_case=False,
 )
+
 #모델 초기화
-from transformers import BertConfig, BertModel
 pretrained_model_config = BertConfig.from_pretrained(
     "beomi/kcbert-base"
 )
 
 # KcBERT embedding
-import torch
 model = BertModel.from_pretrained(
     "beomi/kcbert-base",
     config=pretrained_model_config,
 )
 
 def searchWordEmbedding(searchWord):
-
     features = tokenizer(
         searchWord,
         max_length=40,
@@ -44,25 +44,22 @@ def searchWordEmbedding(searchWord):
     return outputs
 
 # faiss indexing read
-import faiss
-index2 = faiss.read_index("memeTag.index")
+tagIndex=faiss.read_index("memeTag.index")
 
 def search_meme(search):
-
     search_outputs = search
 
     # 검색어 비교 및 반환
     searchVec = search_outputs[1].detach().numpy()
-    distances, indices = index2.search(searchVec, 3)
+    distances, indices = tagIndex.search(searchVec, 3)
     return indices
 
 # https://meme-uerun.run.goorm.io/
 @app.route('/meme', methods=['POST'])
 def memeSearch():
     req = request.get_json()
-
     req = req['userRequest']['utterance']
-
+    # 검색어 to list
     req = req.split()
 
     # 검색어 임베딩
