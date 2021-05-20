@@ -4,7 +4,7 @@ import urllib.request
 import csv
 
 def webCrawling() :
-    
+
     # selenium에서 사용할 웹 드라이버 절대 경로 정보
     chromedriver = 'C:\dev\chromedriver.exe'
     # selenum의 webdriver에 앞서 설치한 chromedirver를 연동한다.
