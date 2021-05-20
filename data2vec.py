@@ -60,5 +60,3 @@ def readTag():
     f.close
 
     return data
-
-

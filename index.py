@@ -40,7 +40,6 @@ def searchWordEmbedding(searchWord):
 
     features = {k: torch.tensor(v) for k, v in features.items()}
     outputs = model(**features)
-
     return outputs
 
 # faiss indexing read
@@ -59,6 +58,7 @@ def search_meme(search):
 def memeSearch():
     req = request.get_json()
     req = req['userRequest']['utterance']
+
     # 검색어 to list
     Req = []
     Req.append(req)
@@ -66,9 +66,12 @@ def memeSearch():
     # 검색어 임베딩
     answer = searchWordEmbedding(Req)
     answer = search_meme(answer)
+
+    # list to string
     answer = "".join(map(str, answer))
     print(answer)
 
+    # 결과
     res = {
         "version": "2.0",
         "template": {
