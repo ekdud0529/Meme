@@ -60,12 +60,13 @@ def memeSearch():
     req = request.get_json()
     req = req['userRequest']['utterance']
     # 검색어 to list
-    req = req.split()
+    Req = []
+    Req.append(req)
 
     # 검색어 임베딩
-    answer = searchWordEmbedding(req)
+    answer = searchWordEmbedding(Req)
     answer = search_meme(answer)
-    answer = " ".join(map(str, answer))
+    answer = "".join(map(str, answer))
     print(answer)
 
     res = {
