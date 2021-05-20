@@ -3,6 +3,7 @@ from transformers import BertTokenizer
 from transformers import BertConfig, BertModel
 import torch
 import faiss
+import csv
 
 ERROR_MESSAGE = '네트워크 접속에 문제가 발생하였습니다. 잠시 후 다시 시도해 주세요.'
 
@@ -53,7 +54,15 @@ def search_meme(search):
     distances, indices = tagIndex.search(searchVec, 3)
     return indices
 
-# https://meme-uerun.run.goorm.io/
+# 이미지 가져오기
+image = []
+# encoding='utf-8-sig' 설정은 한글 깨짐 방지
+f = open('memeData.csv', 'r')
+rdr = csv.reader(f)
+for line in rdr:
+    image.append(line)
+f.close
+
 @app.route('/meme', methods=['POST'])
 def memeSearch():
     req = request.get_json()

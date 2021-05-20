@@ -105,5 +105,5 @@ def csv2list() :
 
     return data
 
-#webCrawling()
-list2csv(webCrawling())
+# webCrawling()
+# list2csv(webCrawling())
