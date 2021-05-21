@@ -78,7 +78,7 @@ def memeSearch():
     answer = search_meme(answer)
     print(answer)
 
-    image_answer = image[Req[0]]
+    image_answer = image[answer[0]]
     image_answer = "".join(image_answer)
     print(image_answer)
     
