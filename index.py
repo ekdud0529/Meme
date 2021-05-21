@@ -3,6 +3,7 @@ from transformers import BertTokenizer
 from transformers import BertConfig, BertModel
 import torch
 import faiss
+import csv
 
 ERROR_MESSAGE = '네트워크 접속에 문제가 발생하였습니다. 잠시 후 다시 시도해 주세요.'
 
@@ -53,7 +54,16 @@ def search_meme(search):
     distances, indices = tagIndex.search(searchVec, 3)
     return indices
 
-# https://meme-uerun.run.goorm.io/
+# 이미지 가져오기
+# encoding='utf-8-sig' 설정은 한글 깨짐 방지
+image = []
+hello = []
+f = open('memeData.csv', 'r', encoding = 'utf-8-sig')
+rdr = csv.reader(f)
+for line in rdr:
+    image.append(line[0])
+f.close
+
 @app.route('/meme', methods=['POST'])
 def memeSearch():
     req = request.get_json()
@@ -66,10 +76,14 @@ def memeSearch():
     # 검색어 임베딩
     answer = searchWordEmbedding(Req)
     answer = search_meme(answer)
-
-    # list to string
-    answer = "".join(map(str, answer))
     print(answer)
+
+    image_answer = image[Req[0]]
+    image_answer = "".join(image_answer)
+    print(image_answer)
+    
+    # 이미지 가져오기
+    #for i in 3:
 
     # 결과
     res = {
@@ -77,8 +91,8 @@ def memeSearch():
         "template": {
             "outputs": [
                 {
-                    "simpleText": {
-                        "text": answer
+                    "simpleImage": {
+                        "imageUrl": image_answer
                     }
                 }
             ]
