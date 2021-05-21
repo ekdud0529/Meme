@@ -3,7 +3,7 @@ from transformers import BertTokenizer
 from transformers import BertConfig, BertModel
 import torch
 import faiss
-import pandas as pd
+import csv
 
 ERROR_MESSAGE = '네트워크 접속에 문제가 발생하였습니다. 잠시 후 다시 시도해 주세요.'
 
@@ -55,14 +55,14 @@ def search_meme(search):
     return indices
 
 # 이미지 가져오기
-image = pd.read_csv('./memeData.csv', encoding='cp949')
-
 # encoding='utf-8-sig' 설정은 한글 깨짐 방지
-# f = open('memeData.csv', 'r', encoding='utf-8-sig')
-# rdr = csv.reader(f)
-# for line in rdr:
-#     image.append(line)
-# f.close
+image = []
+hello = []
+f = open('memeData.csv', 'r', encoding = 'utf-8-sig')
+rdr = csv.reader(f)
+for line in rdr:
+    image.append(line[0])
+f.close
 
 @app.route('/meme', methods=['POST'])
 def memeSearch():
@@ -78,9 +78,10 @@ def memeSearch():
     answer = search_meme(answer)
     print(answer)
 
-    image_answer = image[Req[0]][0]
+    image_answer = image[Req[0]]
     image_answer = "".join(image_answer)
     print(image_answer)
+    
     # 이미지 가져오기
     #for i in 3:
 
