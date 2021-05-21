@@ -57,12 +57,12 @@ def search_meme(search):
 # 이미지 가져오기
 # encoding='utf-8-sig' 설정은 한글 깨짐 방지
 image = []
-hello = []
-f = open('memeData.csv', 'r', encoding = 'utf-8-sig')
+f = open('imageData.csv', 'r')
 rdr = csv.reader(f)
 for line in rdr:
-    image.append(line[0])
+    image.append(line)
 f.close
+print(image)
 
 @app.route('/meme', methods=['POST'])
 def memeSearch():
@@ -78,7 +78,7 @@ def memeSearch():
     answer = search_meme(answer)
     print(answer)
 
-    image_answer = image[answer[0]]
+    image_answer = image[0][answer[0][0]]
     image_answer = "".join(image_answer)
     print(image_answer)
     
