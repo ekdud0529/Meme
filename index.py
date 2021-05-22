@@ -62,7 +62,6 @@ rdr = csv.reader(f)
 for line in rdr:
     image.append(line)
 f.close
-print(image)
 
 @app.route('/meme', methods=['POST'])
 def memeSearch():
@@ -78,13 +77,6 @@ def memeSearch():
     answer = search_meme(answer)
     print(answer)
 
-    image_answer = image[0][answer[0][0]]
-    image_answer = "".join(image_answer)
-    print(image_answer)
-    
-    # 이미지 가져오기
-    #for i in 3:
-
     # 결과
     res = {
         "version": "2.0",
@@ -92,7 +84,7 @@ def memeSearch():
             "outputs": [
                 {
                     "simpleImage": {
-                        "imageUrl": image_answer
+                        "imageUrl": image[0][answer[0][0]]
                     }
                 }
             ]
