@@ -51,7 +51,7 @@ def search_meme(search):
 
     # 검색어 비교 및 반환
     searchVec = search_outputs[1].detach().numpy()
-    distances, indices = tagIndex.search(searchVec, 3)
+    distances, indices = tagIndex.search(searchVec, 1)
     return indices
 
 # 이미지 가져오기
