@@ -84,7 +84,8 @@ def memeSearch():
             "outputs": [
                 {
                     "simpleImage": {
-                        "imageUrl": image[0][answer[0][0]]
+                        "imageUrl": image[0][answer[0][0]],
+                        "altText": "죄송합니다. 다시 입력해주세요."
                     }
                 }
             ]
