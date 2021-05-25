@@ -57,7 +57,7 @@ def search_meme(search):
 # 이미지 가져오기
 # encoding='utf-8-sig' 설정은 한글 깨짐 방지
 image = []
-f = open('imageData.csv', 'r')
+f = open('fiveh.csv', 'r')
 rdr = csv.reader(f)
 for line in rdr:
     image.append(line)
@@ -84,7 +84,7 @@ def memeSearch():
             "outputs": [
                 {
                     "simpleImage": {
-                        "imageUrl": image[0][answer[0][0]],
+                        "imageUrl": image[answer[0][0]][0],
                         "altText": "죄송합니다. 다시 입력해주세요."
                     }
                 }
