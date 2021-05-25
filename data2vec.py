@@ -33,7 +33,6 @@ def tagEmbedding(tagData):
     return outputs
 
 
-
 def tagIndexing(outputs): 
 
     import faiss
@@ -45,7 +44,7 @@ def tagIndexing(outputs):
     print("\n\n")
 
     # faiss indexing save
-    faiss.write_index(index, "memeTag.index")
+    faiss.write_index(index, "memeTag2.index")
 
 def readTag():
 
@@ -53,10 +52,13 @@ def readTag():
 
     data = []
     # encoding='utf-8-sig' 설정은 한글 깨짐 방지
-    f = open('memeData.csv', 'r')
+    f = open('fiveh.csv', 'r', encoding='utf-8-sig')
     rdr = csv.reader(f)
     for line in rdr:
         data.append(line)
     f.close
 
     return data
+
+
+tagIndexing(tagEmbedding(readTag()))
