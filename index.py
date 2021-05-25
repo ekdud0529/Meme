@@ -44,7 +44,7 @@ def searchWordEmbedding(searchWord):
     return outputs
 
 # faiss indexing read
-tagIndex=faiss.read_index("memeTag.index")
+tagIndex=faiss.read_index("memeTag2.index")
 
 def search_meme(search):
     search_outputs = search
