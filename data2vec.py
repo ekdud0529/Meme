@@ -52,7 +52,7 @@ def readTag():
 
     data = []
     # encoding='utf-8-sig' 설정은 한글 깨짐 방지
-    f = open('ImageData.csv', 'r', encoding='utf-8-sig')
+    f = open('test.csv', 'r', encoding='utf-8-sig')
     rdr = csv.reader(f)
     for line in rdr:
         data.append(line)
