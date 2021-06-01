@@ -42,18 +42,9 @@ def tagIndexing(outputs):
 
 import csv
 def readTag():
-<<<<<<< HEAD
-
-    import csv
-
-    data = []
-    # encoding='utf-8-sig' 설정은 한글 깨짐 방지
-    f = open('ImageData.csv', 'r', encoding='utf-8-sig')
-=======
     data = []
     # encoding='utf-8-sig' 설정은 한글 깨짐 방지
     f = open('imgData.csv', 'r', encoding='utf-8-sig')
->>>>>>> b3218b0923cbe4da145549f0a541079e4a34c734
     rdr = csv.reader(f)
     for line in rdr:
         data.append(line)
@@ -108,9 +99,4 @@ import numpy as np
 
 # print(total_output)
 
-<<<<<<< HEAD
-
-tagIndexing(tagEmbedding(readTag()))
-=======
 # tagIndexing(total_output)
->>>>>>> b3218b0923cbe4da145549f0a541079e4a34c734
