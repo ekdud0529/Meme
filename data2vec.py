@@ -31,18 +31,14 @@ def tagEmbedding(tagData):
 
     return outputs[1]
 
-
+import faiss
 def tagIndexing(outputs): 
-
-    import faiss
-
-    tagVec = outputs[1].detach().numpy() # numpy로 형변환
-    index = faiss.IndexFlatL2(tagVec.shape[1])
-    index.add(tagVec)
+    index = faiss.IndexFlatL2(outputs.shape[1])
+    index.add(outputs)
     print(index.ntotal)
 
     # faiss indexing save
-    faiss.write_index(index, "TagIndexing.index")
+    faiss.write_index(index, "tagIndex.index")
 
 import csv
 def readTag():
@@ -103,4 +99,4 @@ total_output = np.concatenate((total_output, out7_load), axis=0)
 
 print(total_output)
 
-# tagIndexing(outputs)
+tagIndexing(total_output)
