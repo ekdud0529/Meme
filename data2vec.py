@@ -28,16 +28,15 @@ def tagEmbedding(tagData):
 
     features = {k: torch.tensor(v) for k, v in features.items()}
     outputs = model(**features)
-    print(outputs[1])
 
-    return outputs
+    return outputs[1]
 
 
 def tagIndexing(outputs): 
 
     import faiss
 
-    tagVec = outputs[1].detach().numpy()
+    tagVec = outputs[1].detach().numpy() # numpy로 형변환
     index = faiss.IndexFlatL2(tagVec.shape[1])
     index.add(tagVec)
     print(index.ntotal)
@@ -65,32 +64,43 @@ def list2csv(crawlingList) :
         wr.writerow(imgList)
     f.close()
 
-tagData = readTag()
-vec1 = tagData[: 1001]
+# tagData = readTag()
+# vec1 = tagData[: 1001]
 # vec2 = tagData[1000:2001]
 # vec3 = tagData[2001:3001]
 # vec4 = tagData[3001:4001]
 # vec5 = tagData[4001:5001]
 # vec6 = tagData[5001:6001]
+# vec7 = tagData[6001:]
 
 
-
-out1 = tagEmbedding(vec1)
+# out1 = tagEmbedding(vec1)
 # out2 = tagEmbedding(vec2)
 # out3 = tagEmbedding(vec3)
 # out4 = tagEmbedding(vec4)
 # out5 = tagEmbedding(vec5)
 # out6 = tagEmbedding(vec6)
+# out7 = tagEmbedding(vec7)
+
+# outnp = out7.detach().numpy()
 
 import numpy as np
-np.save('C:/Users/ekffk/tagFile/tag1', out1)
-out_load = np.load('C:/Users/ekffk/tagFile/tag1.npy')
+# np.save('C:/Users/ekffk/tagFile/tag7', outnp)
+out1_load = np.load('C:/Users/ekffk/tagFile/tag1.npy', allow_pickle=True)
+out2_load = np.load('C:/Users/ekffk/tagFile/tag2.npy', allow_pickle=True)
+out3_load = np.load('C:/Users/ekffk/tagFile/tag3.npy', allow_pickle=True)
+out4_load = np.load('C:/Users/ekffk/tagFile/tag4.npy', allow_pickle=True)
+out5_load = np.load('C:/Users/ekffk/tagFile/tag5.npy', allow_pickle=True)
+out6_load = np.load('C:/Users/ekffk/tagFile/tag6.npy', allow_pickle=True)
+out7_load = np.load('C:/Users/ekffk/tagFile/tag7.npy', allow_pickle=True)
 
-print(out_load)
+total_output = np.concatenate((out1_load, out2_load), axis=0)
+total_output = np.concatenate((total_output, out3_load), axis=0)
+total_output = np.concatenate((total_output, out4_load), axis=0)
+total_output = np.concatenate((total_output, out5_load), axis=0)
+total_output = np.concatenate((total_output, out6_load), axis=0)
+total_output = np.concatenate((total_output, out7_load), axis=0)
 
-# out1.append(out3)
-# out1.append(out4)
-# out1.append(out5)
-# out1.append(out6)
+print(total_output)
 
-#tagIndexing(outputs)
+# tagIndexing(outputs)
