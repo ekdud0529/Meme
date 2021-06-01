@@ -60,9 +60,9 @@ def list2csv(crawlingList) :
         wr.writerow(imgList)
     f.close()
 
-# tagData = readTag()
+tagData = readTag()
 # vec1 = tagData[: 1001]
-# vec2 = tagData[1000:2001]
+vec2 = tagData[1001:2001]
 # vec3 = tagData[2001:3001]
 # vec4 = tagData[3001:4001]
 # vec5 = tagData[4001:5001]
@@ -71,17 +71,17 @@ def list2csv(crawlingList) :
 
 
 # out1 = tagEmbedding(vec1)
-# out2 = tagEmbedding(vec2)
+out2 = tagEmbedding(vec2)
 # out3 = tagEmbedding(vec3)
 # out4 = tagEmbedding(vec4)
 # out5 = tagEmbedding(vec5)
 # out6 = tagEmbedding(vec6)
 # out7 = tagEmbedding(vec7)
 
-# outnp = out7.detach().numpy()
+outnp = out2.detach().numpy()
 
 import numpy as np
-# np.save('C:/Users/ekffk/tagFile/tag7', outnp)
+np.save('C:/Users/ekffk/tagFile/tag2', outnp)
 out1_load = np.load('C:/Users/ekffk/tagFile/tag1.npy', allow_pickle=True)
 out2_load = np.load('C:/Users/ekffk/tagFile/tag2.npy', allow_pickle=True)
 out3_load = np.load('C:/Users/ekffk/tagFile/tag3.npy', allow_pickle=True)
