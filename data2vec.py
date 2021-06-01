@@ -47,10 +47,12 @@ def tagIndexing(outputs):
     faiss.write_index(index, "TagIndex.index")
 
 def readTag():
+
     import csv
+
     data = []
     # encoding='utf-8-sig' 설정은 한글 깨짐 방지
-    f = open('test.csv', 'r', encoding='utf-8-sig')
+    f = open('ImageData.csv', 'r', encoding='utf-8-sig')
     rdr = csv.reader(f)
     for line in rdr:
         data.append(line)
@@ -59,5 +61,5 @@ def readTag():
     return data
 
 
-outputs = tagEmbedding(readTag())
-tagIndexing(outputs)
+
+tagIndexing(tagEmbedding(readTag()))
