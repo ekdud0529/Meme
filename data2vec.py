@@ -38,7 +38,7 @@ def tagIndexing(outputs):
     print(index.ntotal)
 
     # faiss indexing save
-    faiss.write_index(index, "tagIndex.index")
+    faiss.write_index(index, "tag1.index")
 
 import csv
 def readTag():
@@ -82,7 +82,7 @@ def list2csv(crawlingList) :
 
 import numpy as np
 # np.save('C:/Users/ekffk/tagFile/tag2', outnp)
-# out1_load = np.load('C:/Users/ekffk/tagFile/tag1.npy', allow_pickle=True)
+out1_load = np.load('C:/Users/ekffk/tagFile/tag1.npy', allow_pickle=True)
 # out2_load = np.load('C:/Users/ekffk/tagFile/tag2.npy', allow_pickle=True)
 # out3_load = np.load('C:/Users/ekffk/tagFile/tag3.npy', allow_pickle=True)
 # out4_load = np.load('C:/Users/ekffk/tagFile/tag4.npy', allow_pickle=True)
@@ -99,4 +99,4 @@ import numpy as np
 
 # print(total_output)
 
-# tagIndexing(total_output)
+tagIndexing(out1_load)
