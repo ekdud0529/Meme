@@ -60,9 +60,9 @@ def list2csv(crawlingList) :
         wr.writerow(imgList)
     f.close()
 
-tagData = readTag()
+# tagData = readTag()
 # vec1 = tagData[: 1001]
-vec2 = tagData[1001:2001]
+# vec2 = tagData[1001:2001]
 # vec3 = tagData[2001:3001]
 # vec4 = tagData[3001:4001]
 # vec5 = tagData[4001:5001]
@@ -71,32 +71,32 @@ vec2 = tagData[1001:2001]
 
 
 # out1 = tagEmbedding(vec1)
-out2 = tagEmbedding(vec2)
+# out2 = tagEmbedding(vec2)
 # out3 = tagEmbedding(vec3)
 # out4 = tagEmbedding(vec4)
 # out5 = tagEmbedding(vec5)
 # out6 = tagEmbedding(vec6)
 # out7 = tagEmbedding(vec7)
 
-outnp = out2.detach().numpy()
+# outnp = out2.detach().numpy()
 
 import numpy as np
-np.save('C:/Users/ekffk/tagFile/tag2', outnp)
-out1_load = np.load('C:/Users/ekffk/tagFile/tag1.npy', allow_pickle=True)
-out2_load = np.load('C:/Users/ekffk/tagFile/tag2.npy', allow_pickle=True)
-out3_load = np.load('C:/Users/ekffk/tagFile/tag3.npy', allow_pickle=True)
-out4_load = np.load('C:/Users/ekffk/tagFile/tag4.npy', allow_pickle=True)
-out5_load = np.load('C:/Users/ekffk/tagFile/tag5.npy', allow_pickle=True)
-out6_load = np.load('C:/Users/ekffk/tagFile/tag6.npy', allow_pickle=True)
-out7_load = np.load('C:/Users/ekffk/tagFile/tag7.npy', allow_pickle=True)
+# np.save('C:/Users/ekffk/tagFile/tag2', outnp)
+# out1_load = np.load('C:/Users/ekffk/tagFile/tag1.npy', allow_pickle=True)
+# out2_load = np.load('C:/Users/ekffk/tagFile/tag2.npy', allow_pickle=True)
+# out3_load = np.load('C:/Users/ekffk/tagFile/tag3.npy', allow_pickle=True)
+# out4_load = np.load('C:/Users/ekffk/tagFile/tag4.npy', allow_pickle=True)
+# out5_load = np.load('C:/Users/ekffk/tagFile/tag5.npy', allow_pickle=True)
+# out6_load = np.load('C:/Users/ekffk/tagFile/tag6.npy', allow_pickle=True)
+# out7_load = np.load('C:/Users/ekffk/tagFile/tag7.npy', allow_pickle=True)
 
-total_output = np.concatenate((out1_load, out2_load), axis=0)
-total_output = np.concatenate((total_output, out3_load), axis=0)
-total_output = np.concatenate((total_output, out4_load), axis=0)
-total_output = np.concatenate((total_output, out5_load), axis=0)
-total_output = np.concatenate((total_output, out6_load), axis=0)
-total_output = np.concatenate((total_output, out7_load), axis=0)
+# total_output = np.concatenate((out1_load, out2_load), axis=0)
+# total_output = np.concatenate((total_output, out3_load), axis=0)
+# total_output = np.concatenate((total_output, out4_load), axis=0)
+# total_output = np.concatenate((total_output, out5_load), axis=0)
+# total_output = np.concatenate((total_output, out6_load), axis=0)
+# total_output = np.concatenate((total_output, out7_load), axis=0)
 
-print(total_output)
+# print(total_output)
 
-tagIndexing(total_output)
+# tagIndexing(total_output)
