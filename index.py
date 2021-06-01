@@ -44,7 +44,7 @@ def searchWordEmbedding(searchWord):
     return outputs
 
 # faiss indexing read
-tagIndex=faiss.read_index("ImageData.index")
+tagIndex=faiss.read_index("tagIndex.index")
 
 def search_meme(search):
     search_outputs = search
@@ -57,7 +57,7 @@ def search_meme(search):
 # 이미지 가져오기
 # encoding='utf-8-sig' 설정은 한글 깨짐 방지
 image = []
-f = open('test.csv', 'r')
+f = open('imgData.csv', 'r')
 rdr = csv.reader(f)
 for line in rdr:
     image.append(line)
