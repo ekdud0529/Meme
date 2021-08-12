@@ -50,8 +50,8 @@ Meme search machine through natural language query
 
 #### 2. 유사 의미 & 중의적 단어 구별 여부
 <div>
-  <img width="400" src="https://user-images.githubusercontent.com/45174177/129137229-5e45f8c5-308c-4393-9629-26804cc2f400.png">
-  <img width="400" src="https://user-images.githubusercontent.com/45174177/129137236-068ad9a2-d05b-48a2-b97d-65a8cb10b152.png">
+  <img width="400" height="700" src="https://user-images.githubusercontent.com/45174177/129137229-5e45f8c5-308c-4393-9629-26804cc2f400.png">
+  <img width="400" height="700" src="https://user-images.githubusercontent.com/45174177/129137236-068ad9a2-d05b-48a2-b97d-65a8cb10b152.png">
 </div>
 
 #### 3. 사용성
@@ -73,3 +73,7 @@ Meme search machine through natural language query
 >> 신선하다
 >> 상황에 맞는 사진을 찾는 것이 번거로웠는데, 한결 편한 것 같다.
 >> 짤을 수집할 때 굉장히 유용하다.
+
+## 기대효과 및 활용방안
+** 1. 사용자는 검색 후 이미지를 판별하고 선택하는 시간이 단축되고, 이미지의 활용도가 향상될 것이다.
+2. 현재 카카오톡과 라인에서 채팅창에 입력 중인 글과 관련된 이모티콘을 추천해 주는 서비스를 제공하는 중이다. 이러한 기능을 블로그나 카페, 뉴스 등 댓글을 작성할 수 있는 플랫폼에 같은 방식으로 적용 방향을 확대할 수 있다.**
