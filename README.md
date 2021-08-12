@@ -13,7 +13,7 @@
 
 ## Project
 #### 1. Crawling
-> 선정한 사이트(https://2runzzal.com/)에서 크롤링을 통해 이미지 수집
+> 선정한 사이트(https://2runzzal.com/) 에서 크롤링을 통해 이미지 수집
 > python - selenium 통해 수집후 .csv로 저장
 
 #### 2. Embedding
