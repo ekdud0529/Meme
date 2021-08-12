@@ -81,6 +81,13 @@ Meme search machine through natural language query
   <img width="400" height="450" src="https://user-images.githubusercontent.com/45174177/129138540-3cbc0dd9-2882-4c37-817f-ed9de6919ecd.png">
 </div>
 
+## 개선 방향
+1. 서버 개선
+2. KcBERT를 주어진 데이터로 사전학습을 시켜 사용
+3. .webp 이미지는 깨져서 나오기 때문에 jpg, png, gif 파일로 변환해서 사용하기
+4. 이미지 여러개 반환 가능하게 하기
+
+
 ## 참고 문헌
 - 크롤링
   + https://www.youtube.com/watch?v=1b7pXC1-IbE&t=1735s
