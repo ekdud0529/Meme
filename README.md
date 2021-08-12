@@ -50,8 +50,8 @@ Meme search machine through natural language query
 
 #### 2. 유사 의미 & 중의적 단어 구별 여부
 <div>
-  <img width="300" height="650" src="https://user-images.githubusercontent.com/45174177/129137229-5e45f8c5-308c-4393-9629-26804cc2f400.png">
-  <img width="300" height="650" src="https://user-images.githubusercontent.com/45174177/129137236-068ad9a2-d05b-48a2-b97d-65a8cb10b152.png">
+  <img width="400" src="https://user-images.githubusercontent.com/45174177/129137229-5e45f8c5-308c-4393-9629-26804cc2f400.png">
+  <img width="400" =src="https://user-images.githubusercontent.com/45174177/129137236-068ad9a2-d05b-48a2-b97d-65a8cb10b152.png">
 </div>
 
 #### 3. 사용성
