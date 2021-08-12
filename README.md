@@ -77,3 +77,17 @@ Meme search machine through natural language query
 ## 기대효과 및 활용방안
 1. 사용자는 검색 후 이미지를 판별하고 선택하는 시간이 단축되고, 이미지의 활용도가 향상될 것이다.
 2. 현재 카카오톡과 라인에서 채팅창에 입력 중인 글과 관련된 이모티콘을 추천해 주는 서비스를 제공하는 중이다. 이러한 기능을 블로그나 카페, 뉴스 등 댓글을 작성할 수 있는 플랫폼에 같은 방식으로 적용 방향을 확대할 수 있다.
+
+## 참고 문헌
+- 크롤링
+  https://www.youtube.com/watch?v=1b7pXC1-IbE&t=1735s
+
+- BERThttps://github.com/Beomi/KcBERT
+  https://ratsgo.github.io/nlpbook/docs/language_model/tutorial/
+  https://pytorch.org/
+  https://github.com/huggingface/transformers#installation
+  
+- Faisshttps://github.com/facebookresearch/faiss
+  https://lsjsj92.tistory.com/605
+
+- 카카오 i 오픈빌더https://i.kakao.com/docs/getting-started-overview#%EC%98%A4%ED%94%88%EB%B9%8C%EB%8D%94-%EC%86%8C%EA%B0%9C
