@@ -20,7 +20,7 @@ Meme search machine through natural language query
 
 ### 2. Embedding
 > 자연어를 컴퓨터가 이해하고, 효율적으로 처리하게 하기 위해 컴퓨터가 이해할 수 있도록 자연어를 vector로 바꾸는 결과 혹은 일련의 과정이다.
->> **KcBERT
+>> **KcBERT**
 >>> 네이버 뉴스에서 대댓글을 수집해 tokenizer와 BERT 모델을 처음부터 학습한 Pretrained 모델
 >>> 구어체ㅘ 신조어, 오탈자 등의 표현에 좀 더 유용하다고 판단해 사용함
 
