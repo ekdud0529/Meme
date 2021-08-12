@@ -34,11 +34,16 @@ Meme search machine through natural language query
 >>> 때문에 Faiss를 이용해 태그 데이터들을 인덱싱 해두었고, 가장 유사한 결과값을 비교 반환하였다.
 
 ### 4. 카카오톡 연결
-> 시간 관계상 가장 접근하기 좋은 플랫폼이라고 판단했다.
+> 시간 관계상 가장 접근하기 좋은 플랫폼이라고 판단해 카카오톡 플러스 친구로 서비스를 제공했다.
 > 카카오 i 오픈빌더에서 사용자에게 받아오는 발화 패턴이 일정하지 않기 때문에 폴백 블록을 이용했다.
 > 폴백 블록에서는 스킬 데이터를 사용하여 봇 시스템으로부터 스킬 요청을 받고 이에 담긴 정보를 분석하여 적절한 응답을 만든다. 각 요청은 HTTP POST를 통해 전달되고, 요청과 응답 모두 JSON으로 구성된 body를 이용한다.
 
 ### 5. AWS EC2
 > 해당 카카오톡을 백그라운드로 실행시키기 위한 서버로 AWS EC2를 사용했다.
 
-##
+## Test & Review
+### 1. 기본 기능 - 검색
+> <div>
+  <img width="300" src="https://user-images.githubusercontent.com/45174177/129136937-3b312a3f-b4e7-4c5c-8f46-7df72fb1e256.png">
+  <img width="300" src="https://user-images.githubusercontent.com/45174177/129136941-c1dc13db-f2cd-43ca-adf8-4a320973a486.png">
+</div>
