@@ -43,7 +43,4 @@ Meme search machine through natural language query
 
 ## Test & Review
 ### 1. 기본 기능 - 검색
-> <div>
-  <img width="300" src="https://user-images.githubusercontent.com/45174177/129136937-3b312a3f-b4e7-4c5c-8f46-7df72fb1e256.png">
-  <img width="300" src="https://user-images.githubusercontent.com/45174177/129136941-c1dc13db-f2cd-43ca-adf8-4a320973a486.png">
-</div>
+> <div><img width="300" src="https://user-images.githubusercontent.com/45174177/129136937-3b312a3f-b4e7-4c5c-8f46-7df72fb1e256.png"><img width="300" src="https://user-images.githubusercontent.com/45174177/129136941-c1dc13db-f2cd-43ca-adf8-4a320973a486.png"></div>
