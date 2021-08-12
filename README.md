@@ -78,7 +78,7 @@ Meme search machine through natural language query
 1. 사용자는 검색 후 이미지를 판별하고 선택하는 시간이 단축되고, 이미지의 활용도가 향상될 것이다.
 2. 현재 카카오톡과 라인에서는 아래 사진과 같이 채팅창에 입력 중인 글과 관련된 이모티콘을 추천해 주는 서비스를 제공하는 중이다. 이러한 기능을 블로그나 카페, 뉴스 등 댓글을 작성할 수 있는 플랫폼에 같은 방식으로 적용 방향을 확대할 수 있다.
 <div>
-  <img width="400" height="450" src="https://user-images.githubusercontent.com/45174177/129138540-3cbc0dd9-2882-4c37-817f-ed9de6919ecd.png">
+  <img width="400" height="400" src="https://user-images.githubusercontent.com/45174177/129138540-3cbc0dd9-2882-4c37-817f-ed9de6919ecd.png">
 </div>
 
 ## 개선 방향
