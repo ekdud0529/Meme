@@ -57,8 +57,8 @@ Meme search machine through natural language query
 #### 3. 사용성
 *사용자 16명이 이틀간 사용한 후 설문조사 진행*
 
-**접근성과 사용 만족도**
-<div><img width="400" src="https://user-images.githubusercontent.com/45174177/129137770-2bda6358-3f13-4082-82d2-63668d3de588.png"><img width="400" src="https://user-images.githubusercontent.com/45174177/129137775-777b6525-4a31-4efd-b07d-77cbec95d67d.png"></div>
+> **접근성과 사용 만족도**
+> <div><img width="400" src="https://user-images.githubusercontent.com/45174177/129137770-2bda6358-3f13-4082-82d2-63668d3de588.png"><img width="400" src="https://user-images.githubusercontent.com/45174177/129137775-777b6525-4a31-4efd-b07d-77cbec95d67d.png"></div>
 
 > **불편한 점**
 >> 없다.
