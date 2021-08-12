@@ -80,17 +80,17 @@ Meme search machine through natural language query
 
 ## 참고 문헌
 - 크롤링
-  https://www.youtube.com/watch?v=1b7pXC1-IbE&t=1735s
+  + https://www.youtube.com/watch?v=1b7pXC1-IbE&t=1735s
 
 - BERT
-  https://github.com/Beomi/KcBERT
-  https://ratsgo.github.io/nlpbook/docs/language_model/tutorial/
-  https://pytorch.org/
-  https://github.com/huggingface/transformers#installation
+  + https://github.com/Beomi/KcBERT
+  + https://ratsgo.github.io/nlpbook/docs/language_model/tutorial/
+  + https://pytorch.org/
+  + https://github.com/huggingface/transformers#installation
   
 - Faiss
-  https://github.com/facebookresearch/faiss
-  https://lsjsj92.tistory.com/605
+  + https://github.com/facebookresearch/faiss
+  + https://lsjsj92.tistory.com/605
 
 - 카카오 i 오픈빌더
-  https://i.kakao.com/docs/getting-started-overview#%EC%98%A4%ED%94%88%EB%B9%8C%EB%8D%94-%EC%86%8C%EA%B0%9C
+  + https://i.kakao.com/docs/getting-started-overview#%EC%98%A4%ED%94%88%EB%B9%8C%EB%8D%94-%EC%86%8C%EA%B0%9C
