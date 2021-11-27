@@ -86,7 +86,7 @@
 4. 이미지 여러개 반환 가능하게 하기
 
 
-## 참고 문헌
+## 참고 자료
 - 크롤링
   + https://www.youtube.com/watch?v=1b7pXC1-IbE&t=1735s
 
