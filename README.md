@@ -8,7 +8,7 @@
 - 인터넷에서 문화요소로 유행하는 모든 것을 말할 때 사용되는 단어
 - SNS 등에서 유행하여 다양한 모습으로 복제되는 짤방 혹은 패러디물
 
-## Process
+## 시스템 흐름도
 <div><img width="800" src="https://user-images.githubusercontent.com/45174177/129135592-1894cc04-f063-4938-b676-356be44720bd.png"></div>
 
 ## Project
