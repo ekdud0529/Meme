@@ -59,7 +59,6 @@ BERT를 수행하는데는 상당한 시간이 걸리므로, 이를 통해서만
 <div><img width="400" src="https://user-images.githubusercontent.com/45174177/129137770-2bda6358-3f13-4082-82d2-63668d3de588.png"><img width="400" src="https://user-images.githubusercontent.com/45174177/129137775-777b6525-4a31-4efd-b07d-77cbec95d67d.png"></div>
 
 ##### **불편한 점**
-- 없다.
 - 느리다.
 - 동시 사용자가 많을 경우 반환이 안 될 때가 있다.
 - 정확도가 다소 부진하다.
